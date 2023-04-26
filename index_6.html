@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index 6</title>
+</head>
+<body>
+    <div id="root"></div>
+
+
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script> 
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/jsx">
+        function H1Tagheading(props){
+            return (
+                <>
+                    <h1>{props.data}</h1>
+                    <button onClick={props.clickHandler}>Click to button and change data of H1</button>
+                </>
+            )
+        }
+        function H2Tagheading(props){
+            return (
+                <>
+                    <h2>{props.data}</h2>
+                    <button onClick={props.clickHandler}>Click to button and change data of H1</button>
+                </>
+            )
+        }
+        function MyApp(){
+            const [headData, setHeadData] = React.useState('Hello ET I am Heading H1 Tag from Props');
+
+            const [headData_2, setHeadData_2] = React.useState('Hello ET I am Heading H1 Tag from Props');
+
+            const changeHeading_1 = ()=>{
+                setHeadData('H1 Tag heading Change')
+            }
+            const changeHeading_2 = ()=>{
+                setHeadData_2('H2 Tag heading Change')
+            }
+            return (
+                <>
+                    <H1Tagheading data={headData} clickHandler={changeHeading_1}/>
+                    <H2Tagheading data={headData_2} clickHandler={changeHeading_2}/>
+                </>
+            )
+        }
+        const app = document.getElementById('root');
+                ReactDOM.render(<MyApp />, app)
+    </script>
+</body>
+</html>
